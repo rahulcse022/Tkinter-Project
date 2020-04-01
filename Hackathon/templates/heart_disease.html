@@ -1,0 +1,150 @@
+<!-- This is GUI for Breast Cancer Detection Application Using Machine Learning Classifer -->
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+  <style>
+
+/* navbar code */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-size: 20px;
+  font-family: 
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+.active {
+  background-color: #4CAF50;
+}
+
+
+
+    /* CSS code for button */
+    body {
+      background: linear-gradient(-60deg,  #42E742  ,#1ABDE2);">
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    /* CSS code for button */
+    .button_css {
+  /*  color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;   */
+    border-radius: 25px;
+    background: #ffffff;
+    padding: 20px;
+   /* border: 4px solid #494949 !important;   */
+    display: inline-block;
+  /*  transition: all 0.4s ease 0s;  */
+    }
+    
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+   /* border-color: #f6b93b !important;   */
+    transition: all 0.4s ease 0s;
+    }
+    .login{
+  background: linear-gradient(-45deg,  #9933ff  ,#ffff33);
+  color: black;
+  text-align: center;
+  margin-top: 70px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 2px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="/breast_cancer/">Breast Cancer</a></li>
+  <li><a href="/diabetes/">Diabetes</a></li>
+  <li><a href="/malaria/">Malaria</a></li>
+</ul>
+
+  <!-- Show Indian AI Hospital banner-->
+  <div class="login">
+    <h1>ENIGMA AI HOSPITAL</h1>
+    <h2> Heart Disease Detection Application Using Machine learning Classification</h2>
+  </div>
+ 
+ 
+ <div class="login">
+	
+    <!-- Get input for predict the cancer -->
+    <center>
+    <form action="{{ url_for('predict')}}"method="post">
+        <h1>Enter The Value Of Tumor Features </h1>
+        
+<input type="text" name="age" placeholder="Age" required="required" />
+<input type="text" name="sex" placeholder="Sex" required="required" />
+<input type="text" name="cp" placeholder="Chest pain type" required="required" />
+<input type="text" name="trestbps" placeholder="Resting blood pressure" required="required" />
+
+  <br><br>
+
+<input type="text" name="chol" placeholder="Serum cholestoral" required="required" />
+<input type="text" name="fps" placeholder="Fasting blood sugar" required="required" />
+<input type="text" name="restecg" placeholder="Resting electrocardiographic results" required="required" />
+<input type="text" name="thalach" placeholder="Maximum heart rate" required="required" />
+
+  <br><br>
+
+<input type="text" name="exang" placeholder="Exercise induced angina" required="required" />
+<input type="text" name="oldpeak" placeholder="OldPeak(ECG downwards)" required="required" />
+<input type="text" name="slope" placeholder="Slope(ECG upwards)" required="required" />
+<input type="text" name="ca" placeholder="no.of major vessels" required="required" />
+
+		<br><br>
+
+<input type="text" name="thal" placeholder="Max.heart rate achieved" required="required" />
+
+        <br>
+        <br>
+        
+        <!-- Show button -->
+        <div class="button_css" align="center">
+            <button type="submit">Predict Cancer</button>
+        </div>
+        
+    </form>
+    </center>
+   
+   <!-- Show predicted output using ML model --> 
+   <div>
+       <center>
+   <h1>{{ prediction_text }}</h1>
+       </center>
+   </div>
+
+ </div>
+
+</body>
+</html>
